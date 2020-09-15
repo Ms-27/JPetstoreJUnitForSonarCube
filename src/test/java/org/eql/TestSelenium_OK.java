@@ -25,7 +25,7 @@ public class TestSelenium_OK {
 
 	
 	//navigation
-	driver.get("https://petstore.octoperf.com/");
+	driver.get("http://localhost:8090/jpetstore/");
 	
 	driver.findElement(By.xpath("//a[.='Enter the Store']")).click();
 	
@@ -82,6 +82,29 @@ public class TestSelenium_OK {
 		System.out.println("ERREUR : le prix du panier n'a pas été multiplié par deux");
 	}
 	System.out.println("SUCCES : le prix du panier a été multiplié par deux");
+	
+	//ajout d'un chat dans le panier
+	driver.findElement(By.xpath("//div[@id='QuickLinks']/a[contains(@href,'Id=CATS')]")).click();
+	assertEquals(driver.findElement(By.xpath("//h2")).getText(),"Cats");
+	driver.findElement(By.xpath("//a[contains(@href,'Id=FL-DLH-02')]")).click();
+	assertEquals(driver.findElement(By.xpath("//h2")).getText(),"Persian");
+	driver.findElement(By.xpath("//a[contains(@href,'workingItemId=EST-17')]")).click();
+	assertEquals(driver.findElement(By.xpath("//h2")).getText(),"Shopping Cart");
+	
+	//ajout d'un oiseau
+	driver.findElement(By.xpath("//div[@id='QuickLinks']/a[contains(@href,'Id=BIRDS')]")).click();
+	assertEquals(driver.findElement(By.xpath("//h2")).getText(),"Birds");
+	driver.findElement(By.xpath("//a[contains(@href,'Id=AV-CB-01')]")).click();
+	assertEquals(driver.findElement(By.xpath("//h2")).getText(),"Amazon Parrot");
+	driver.findElement(By.xpath("//a[contains(@href,'workingItemId=EST-18')]")).click();
+	assertEquals(driver.findElement(By.xpath("//h2")).getText(),"Shopping Cart");
+	
+	//validation du panier
+	driver.findElement(By.xpath("//a[contains(@href,'newOrderForm=')]")).click();
+	assertEquals(driver.findElement(By.xpath("//th")).getText(),"Payment Details");
+	driver.findElement(By.xpath("//input[contains(@name,'newOrder')]")).click();
+	assertEquals(driver.findElement(By.xpath("//a[contains(@href, 'confirmed=true')]")).getText(),"Confirm");
+	driver.findElement(By.xpath("//a[contains(@href, 'confirmed=true')]")).click();
 	
 	
 	driver.quit();

@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TestSelenium_KO {
 
-	@Test
+	//@Test
 	public void TestSeleniumJUnit () throws Exception{
 
 		System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");

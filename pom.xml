@@ -12,6 +12,20 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<surefire.version>3.0.0-M3</surefire.version>
+	    <!-- <cargo-maven2-plugin.version>1.8.0</cargo-maven2-plugin.version>
+	    <clirr.comparisonVersion>6.0.2</clirr.comparisonVersion>
+	    <enforcer.skip>true</enforcer.skip> -->
+	
+	    <!-- Remove after parent 32 (support for jdk 13) -->
+	    <jacoco.version>0.8.5</jacoco.version>
+	    
+	    <sonar.login>a23e253955844a6c54df83fadfa8fb0f41e9c7a3</sonar.login>
+	    <sonar.sources>src/main/java</sonar.sources>
+	    <!--<sonar.test.exclusions>src/test/java/**</sonar.test.exclusions>-->
+	    <sonar.projectName>JPetstore - JUnit</sonar.projectName>
+	    <sonar.projectKey>JPetstore2</sonar.projectKey>
+	    <sonar.jacoco.reportPaths>target/jacoco-it.exec</sonar.jacoco.reportPaths>
 	</properties>
 
 	<dependencies>
@@ -32,6 +46,4 @@
 			<version>1.2.17</version>
 		</dependency>
 	</dependencies>
-
-
 </project>
